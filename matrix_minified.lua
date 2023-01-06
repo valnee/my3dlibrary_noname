@@ -23,9 +23,7 @@ local function scale(x,y,z)
         0, 0, z, 0, 0, 0, 0, 1 } end
 
 local function translate(x,y,z)
-  return {
-        1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0,
-        x, y, z, 1 } end
+  return { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, x, y, z, 1 } end
 
 local function lookat(x_from, y_from, z_from, x_to, y_to, z_to, up)
     local from, to = vector.new(x_from, y_from, z_from), vector.new(x_to, y_to, z_to)
@@ -44,11 +42,9 @@ local function matrix_multiplication(a,b,c,d,m,_a)
     return x,y,z,w
 end
 
-return {
-  matrix_multiplication=mnatrix_multiplication,
+return { matrix_multiplication=mnatrix_multiplication,
   perspective_projection=perspective_projection,
   euler_rotation=euler_rotation,
   translate=translate,
   lookat=lookat,
-  scale=scale,
-}
+  scale=scale }
